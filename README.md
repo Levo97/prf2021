@@ -1,2 +1,2 @@
 # prf2021
-prf beadandó
+Programrendszerek fejlesztése gyakorlatra készült webáruház
