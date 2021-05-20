@@ -1,13 +1,4 @@
 const express = require('express');
-const cors = require('cors')
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const path = require('path');
-
-const passport = require('passport');
-const localStrategy = require('passport-local').Strategy;
-const expressSession = require('express-session');
 
 const app = express();
 
