@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product';
-
+import { Product } from '../product'
+import { HttpClient } from '@angular/common/http'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,13 +8,14 @@ import { Product } from '../product';
 })
 export class HomeComponent implements OnInit {
 
-  products: Product[]=[
-    {itemid: 1, name:"alma", description: "nagyon finom", prize: 10, img_name: "assets/img/alma.png", quantity:1}
-  ]
+  products: Product[]=[]
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.post<Product[]>("http://localhost:3000/products", {responseType: 'text', witCredentials: true}).subscribe(data =>
+      this.products =data
+    )
   }
 
 }

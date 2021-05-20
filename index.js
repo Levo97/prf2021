@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Product = require('./models/Product');
 const app = express();
 const productSchema = require("./models/Product");
-const userSchema= require("./models/User");
+const userSchema = require("./models/User");
 
 require('dotenv').config();
 
@@ -13,13 +13,13 @@ mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    
-.then(()=>{
-    console.log("csatlakoztunk")
-})
-.catch((err)=>{
-    console.log(err)
-})
+
+    .then(() => {
+        console.log("csatlakoztunk")
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 
 const product = mongoose.model('Product', productSchema);
 const user = mongoose.model('User', userSchema);
@@ -32,8 +32,19 @@ const user = mongoose.model('User', userSchema);
 //const tmp = new user({name: "szaboz", password: "PRF2021"});
 //tmp.save() ;
 
-app.get('/',(req, res)=>{
-    res.send("Szia Levi")
+app.use(express.static("frontend/shop/dist/shop/", { root: __dirname }))
+
+app.get('/', (req, res) => {
+    res.sendFile("frontend/shop/dist/shop/index.html", { root: __dirname })
+})
+
+app.post('/products', (req, res) => {
+    product.find({
+        "quantity": { $gt: 0}
+    }), (err, result) => {
+        console.log(result)
+        res.send(result)
+    }
 })
 
 app.listen(process.env.PORT);
