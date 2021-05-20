@@ -11,6 +11,8 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'login', component: LoginComponent},
   {path: '**', component: PageErrorComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+
 
 
 ];

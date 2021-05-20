@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  products: Product[]=[
+    {itemid: 1, name:"alma", description: "nagyon finom", prize: 10, img_name: "assets/img/alma.png", quantity:1}
+  ]
 
   constructor() { }
 
