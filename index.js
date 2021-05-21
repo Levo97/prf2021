@@ -7,6 +7,12 @@ const userSchema = require("./models/User");
 
 require('dotenv').config();
 
+var passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy;
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 var url = process.env.MONGODB
 
 mongoose.connect(url, {
@@ -31,6 +37,46 @@ const user = mongoose.model('User', userSchema);
 
 //const tmp = new user({name: "szaboz", password: "PRF2021"});
 //tmp.save() ;
+
+
+passport.use(new LocalStrategy({
+
+    usernameField:'name',
+    passwordField:'password'
+},
+    function(name, password, done) {
+      User.findOne({ name: name }, function(err, user) {
+        if (err) { return done(err); }
+        if (!user) {
+          return done(null, false, { message: 'Incorrect username.' });
+        }
+        
+        user.comparePasswords(password, (err, isMatch) => {
+            if (err) return done(err, false);
+            if(!isMatch) return done("Incorresct password", false);
+            return done(null, user);
+        })
+      });
+    }
+  ));
+
+  passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
+  
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
+    });
+  });
+
+  app.post('/login',
+  passport.authenticate('local'),
+  function(req, res) {
+    // If this function gets called, authentication was successful.
+    // `req.user` contains the authenticated user.
+    res.redirect('/users/' + req.user.username);
+  });
 
 app.use(express.static("frontend/shop/dist/shop/", { root: __dirname }))
 

@@ -8,6 +8,8 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { PageErrorComponent } from './page-error/page-error.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
