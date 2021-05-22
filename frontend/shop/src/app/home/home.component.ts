@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
     )
   }
  addCart(tmp : Product){
-    alert(tmp.name+" hozzáadva akosárhoz!")
     let cartAll = localStorage.getItem('cart');
     if(cartAll){
       var cart = JSON.parse(cartAll);
