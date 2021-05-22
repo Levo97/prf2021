@@ -19,21 +19,6 @@ app.use(passport.session());
 
 var url = process.env.MONGODB
 
-var corsOptions = {
-    origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1 || !origin) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'))
-        }
-    },
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin',
-        'Origin', 'Accept']
-};
-
-app.use(cors(corsOptions));
-
 mongoose
     .connect(url, {
         useNewUrlParser: true,
