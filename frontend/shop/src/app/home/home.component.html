@@ -1,14 +1,15 @@
-<div class="card-deck">
-  <div class="card mb-4 text-center" *ngFor="let product of products">
-    <img class="card-img-top img-fluid" [src]="product.img_name" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ product.name }}</h5>
-      <p class="card-text">{{ product.description }}</p>
-      <p class="card-text">{{ product.price }} Ft</p>
-      <button type="button" class="btn btn-primary" (click)="addCart(product)" data-toggle="modal"
-        data-target="#myModal">Kosárba</button>
+<div style="margin: 3%">
+  <div class="card-deck">
+    <div class="card mb-4 text-center" *ngFor="let product of products">
+      <img class="card-img-top img-fluid" [src]="product.img_name" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text">{{ product.price }} Ft</p>
+        <button type="button" class="btn btn-primary" (click)="addCart(product)" data-toggle="modal"
+          data-target="#myModal">Kosárba</button>
+      </div>
     </div>
-
 
   </div>
 </div>
