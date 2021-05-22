@@ -8,15 +8,11 @@
       <button type="button" class="btn btn-primary" (click)="addCart(product)" data-toggle="modal"
         data-target="#myModal">Kosárba</button>
     </div>
-    <div class="w-100 d-none d-sm-block d-md-none">
-      <!-- wrap every 2 on sm-->
-    </div>
+
 
   </div>
 </div>
 
-
-<!-- The Modal -->
 <div class="modal" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -24,13 +20,15 @@
       <div class="modal-body">
         <div class="row">
           <img src="assets/img/modal.png" alt="image" class="col-4">
-          <p class="col-8">Sikeresen kosárba helyezted a terméket!</p>
-          <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+          <div class="col-8" style="align-self: center">
+            <p class="center">Sikeresen kosárba helyezted a terméket!</p>
+          </div>
         </div>
       </div>
 
-      <!-- Modal footer -->
-
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" style="float: right;">Ok</button>
+      </div>
 
 
     </div>

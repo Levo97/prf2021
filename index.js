@@ -25,7 +25,7 @@ mongoose
         useUnifiedTopology: true
     })
     .then(() => {
-        console.log("Csatlakoztunk!")
+        console.log("db connected!")
     })
     .catch((err) => {
         console.log(err)
@@ -59,9 +59,9 @@ passport.use(new LocalStrategy({
                     message: 'Incorrect username.'
                 });
             }
-            user.comparePasswords(password, (err, isMatch)=>{
-                if(err) return done(err, false);
-                if(!isMatch) return done("Incorrect password", false);
+            user.comparePasswords(password, (err, isMatch) => {
+                if (err) return done(err, false);
+                if (!isMatch) return done("Incorrect password", false);
                 return done(null, user);
             })
         });
@@ -78,11 +78,11 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-app.post('/login', (req, res) =>{
-    if(req.body.name) {
-        passport.authenticate('local', (err, user)=>{
+app.post('/login', (req, res) => {
+    if (req.body.name) {
+        passport.authenticate('local', (err, user) => {
             if (err) return res.status(500).send(err);
-            req.login(user, (err)=>{
+            req.login(user, (err) => {
                 if (err) return res.status(500).send(err)
                 return res.status(200).send("Authenticated!")
             })

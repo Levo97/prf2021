@@ -4,15 +4,88 @@
       <th></th>
       <th class="text-align: right">Termék</th>
       <th class="text-align: left">Ára</th>
+      <th></th>
+
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let product of products">
       <td class="float: right"><img [src]="product.img_name" alt="image"></td>
       <td class="text-align: center">{{ product.name }}</td>
-      <td><button type="button" class="btn-close" (click)="removeFromCart(product)" aria-label="Remove"></button></td>
+      <td>{{ product.price }}Ft</td>
+      <td><button type="button" class="btn-close" (click)="removeFromCart(product)" aria-label="Close"></button></td>
     </tr>
   </tbody>
-  <p><strong>Fizetendő: {{ sum }}Ft</strong></p>
+  <td></td>
+  <td></td>
+  <td>
+    <p class="text-align: right"><strong>Fizetendő: {{ sum }}Ft</strong></p>
+  </td>
+  <td><button type="button" class="btn btn-success" style="float: right;" data-toggle="modal"
+      data-target="#myModal">Vásárlás</button> </td>
 
 </table>
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <section class="order-form my-4 mx-4">
+        <div class="container pt-4">
+
+          <div class="row">
+            <div class="col-12">
+              <h1>Megrendelés</h1>
+              <hr class="mt-1">
+            </div>
+            <div class="col-12">
+
+              <div class="row mx-4">
+                <div class="col-12 mb-2">
+                  <label class="order-form-label">Név</label>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input class="order-form-input" placeholder="Vezetéknév">
+                </div>
+                <div class="col-12 col-sm-6 mt-2 mt-sm-0">
+                  <input class="order-form-input" placeholder="Keresztnév">
+                </div>
+              </div>
+
+
+              <div class="row mt-3 mx-4">
+                <div class="col-12">
+                  <label class="order-form-label">Szállítási cím</label>
+                </div>
+                <div class="col-12">
+                  <input class="order-form-input" placeholder="Utca">
+                </div>
+                <div class="col-12 mt-2">
+                  <input class="order-form-input" placeholder="emelet, lépcsőház, lakás, stb.                  ">
+                </div>
+                <div class="col-12 col-sm-6 mt-2 pr-sm-2">
+                  <input class="order-form-input" placeholder="Város">
+                </div>
+
+                <div class="col-12 col-sm-6 mt-2 pr-sm-2">
+                  <input class="order-form-input" placeholder="Irányítószám">
+                </div>
+
+              </div>
+
+
+              <div class="row mt-3">
+                <div class="col-12">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
+                  <button type="button" class="btn btn-primary">Megrendelés</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
