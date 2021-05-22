@@ -1,6 +1,23 @@
-<a routerLink="/home" routerLinkActive="activebutton" >Főoldal</a>
-<a routerLink="/cart" routerLinkActive="activebutton" >Kosár</a>
-<a routerLink="/login" routerLinkActive="activebutton" >Bejelentkezés</a>
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" >Levi's Pizza</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="active">
+        <a  class="nav-link" routerLink="/home" routerLinkActive="activebutton" >Főoldal</a>
+        </li>
+        <li><a class="nav-link" routerLink="/cart" routerLinkActive="activebutton" >Kosár</a>
+        </li>
+        <li><a class="nav-link" routerLink="/login" routerLinkActive="activebutton" >Bejelentkezés</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+
 
 
 <router-outlet></router-outlet>

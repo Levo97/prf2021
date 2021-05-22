@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
       this.products =data
     )
   }
-  addCart(tmp : Product){
+ addCart(tmp : Product){
     alert(tmp.name+" hozzáadva akosárhoz!")
     let cartAll = localStorage.getItem('cart');
     if(cartAll){

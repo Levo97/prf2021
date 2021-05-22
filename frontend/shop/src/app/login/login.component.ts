@@ -18,24 +18,23 @@ password: string;
 
    }
 
-  ngOnInit(): void {
-  }
 
-login(){
-
-  if(this.name="" && this.password !=""){
-    this.AuthenticationService.login(this.name, this.password).subscribe(msg => {
-      console.log(msg)
-      localStorage.setItem('user', this.name)
-      this.router.navigate(['home']);
-
-
-    }, err => {
-      console.log(err)
+   ngOnInit(): void {
+    if(localStorage.getItem("user")){
+      localStorage.removeItem("user")
     }
-    )
   }
 
-}
+  login(){
+    if(this.name !="" && this.password !=""){
+      this.AuthenticationService.login(this.name, this.password).subscribe(msg =>{
+        console.log(msg)
+        localStorage.setItem('user', this.name)
+        this.router.navigate(['home']);
+      }, (err) =>{
+        console.log(err)
+      })
+    }
+  }
 
 }

@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
     if(cart){
       JSON.parse(cart).forEach((product: Product)=>{
         this.products.push(product)
-        this.sum+=product.prize
+        this.sum+=product.price
       })
     }
   }

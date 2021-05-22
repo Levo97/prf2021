@@ -1,11 +1,20 @@
-<p>cart works!</p>
 
-<table>
-    <tr *ngFor="let product of products">
-        <td>{{ product.name }}</td>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Termék</th>
+        <th>Ára</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
         <td><img [src]="product.img_name" alt="image"></td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.prize }}Ft</td>
-    </tr>
-</table>
-<p><strong>Fizetendő: {{ sum }}Ft</strong></p>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}Ft</td>
+      </tr>
+    </tbody>
+    <p><strong>Fizetendő: {{ sum }}Ft</strong></p>
+
+  </table>
