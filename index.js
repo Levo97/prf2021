@@ -36,12 +36,13 @@ const User = mongoose.model('User', userSchema)
 
 
 /*const tmp = new Product({itemid: "4", name: "Kukoricás pizza", description: "pizzaszósz, sonka, kukorica, Trappista sajt", quantity: "2370", prize: "5", image: "assets/img/4.jpg"});
+
 tmp.save();*/
 
 /*
-const tmp = new User({ name: "szaboz", password: "PRF2021"})
-tmp.save()
-*/
+const tmp = new User({ name: "user", password: "user123456" })
+tmp.save()*/
+
 
 passport.use(new LocalStrategy({
     usernameField: 'name',

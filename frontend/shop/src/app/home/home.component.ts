@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
     this.http.post<Product[]>("http://localhost:3000/products", {responseType: 'text', witCredentials: true}).subscribe(data =>
       this.products =data
     )
+
   }
  addCart(tmp : Product){
     let cartAll = localStorage.getItem('cart');

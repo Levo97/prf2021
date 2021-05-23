@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { PageErrorComponent } from './page-error/page-error.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -17,8 +18,8 @@ import { PageErrorComponent } from './page-error/page-error.component';
     HomeComponent,
     CartComponent,
     LoginComponent,
-    PageErrorComponent
-  ],
+    PageErrorComponent,
+    AdminComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

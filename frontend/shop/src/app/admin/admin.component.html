@@ -3,7 +3,9 @@
     <tr>
       <th></th>
       <th class="text-align: right">Termék</th>
+      <th class="text-align: right">Leírás</th>
       <th class="text-align: left">Ára</th>
+      <th class="text-align: left">Mennyiség</th>
       <th></th>
 
     </tr>
@@ -11,18 +13,41 @@
   <tbody>
     <tr *ngFor="let product of products">
       <td class="float: right"><img [src]="product.img_name" alt="image"></td>
-      <td class="text-align: center">{{ product.name }}</td>
-      <td>{{ product.price }}Ft</td>
-      <td><button type="button" class="btn-close" (click)="removeFromCart(product)" aria-label="Close"></button></td>
+      <td class="text-align: center">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="neve" id="neve" aria-label="Default" [value]=" product.name">
+
+        </div>
+      </td>
+      <td class="text-align: center">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="leiras" id="leiras" aria-label="Default"
+            [value]=" product.description">
+
+        </div>
+      </td>
+      <td>
+
+        <div class="input-group mb-3">
+          <input type="number" name="ft" id="ft" class="form-control" [value]="product.price">
+          <div class="input-group-append">
+            <span class="input-group-text">Ft</span>
+          </div>
+        </div>
+      </td>
+      <td class="float: right">
+        <div class="input-group mb-3">
+          <input type="number" name="db" id="db" class="form-control" [value]="product.quantity">
+          <div class="input-group-append">
+            <span class="input-group-text">db</span>
+          </div>
+        </div>
+      </td>
+
+      <td><button type="button" class="btn-close" (click)="remove(product)" aria-label="Close"></button></td>
     </tr>
   </tbody>
-  <td></td>
-  <td></td>
-  <td>
-    <p class="text-align: right"><strong>Fizetendő: {{ sum }}Ft</strong></p>
-  </td>
-  <td><button type="button" class="btn btn-success" style="float: right;" data-toggle="modal"
-      data-target="#myModal">Vásárlás</button> </td>
+
 
 </table>
 
@@ -79,7 +104,7 @@
                   <div class="btn-group" role="group" style="text-align: center">
                     <button type="button" id="btnSubmit" class="btn btn-outline-danger"
                       data-dismiss="modal">Mégsem</button>
-                    <button type="button" id="btnSubmit" (click)="order()" class="btn btn-outline-success"
+                    <button type="button" id="btnSubmit" class="btn btn-outline-success"
                       data-dismiss="modal">Jóváhagyás</button>
                   </div>
                 </div>

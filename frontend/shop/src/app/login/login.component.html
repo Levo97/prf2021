@@ -1,13 +1,65 @@
-
 <div class="container">
-    <div class="form-group">
-      <label for="uname">Felhasználónév:</label>
-      <input class="form-control" type="text" placeholder="TesztElek" name="name" [(ngModel)]="name" required>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Jelszó:</label>
-      <input class="form-control" type="password" placeholder="123456" name="password"  [(ngModel)]="password" required>
-    </div>
-    <button type="submit" (click)="login()" class="btn btn-primary">Jóváhagyás</button>
+  <div class="form-group">
+    <label for="uname">Felhasználónév:</label>
+    <input class="form-control" type="text" placeholder="TesztElek" name="name" [(ngModel)]="name" required>
+  </div>
+  <div class="form-group">
+    <label for="pwd">Jelszó:</label>
+    <input class="form-control" type="password" placeholder="123456" name="password" [(ngModel)]="password" required>
+  </div>
+  <div style="padding: 20px">
+    <button type="submit" (click)="login()" class="btn btn-primary">Bejelentkezés</button>
+    <a data-toggle="modal" data-target="#myModal" href="" class="text-align: right"> Regisztráció</a>
+  </div>
 </div>
 
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <section class="order-form my-4 mx-4">
+        <div class="container pt-4">
+
+          <div class="row">
+            <div class="col-12">
+              <h1 style="  text-align: center">Regisztráció</h1>
+              <hr class="mt-1">
+            </div>
+            <div class="col-12">
+
+
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><label class="order-form-label">Felhasználónév</label></td>
+                    <td><input class="order-form-input" placeholder="user123456" [(ngModel)]="regname"></td>
+                  </tr>
+                  <tr>
+                    <td><label class="order-form-label">Jelszó</label></td>
+                    <td><input class="order-form-input" placeholder="123456" type="password" [(ngModel)]="regpassword">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td class="float: right"><button type="button" id="btnSubmit" class="btn btn-outline-danger"
+                        data-dismiss="modal">Mégsem</button> <button type="submit" id="regbutton"
+                        class="btn btn-outline-success" data-dismiss="modal">Jóváhagyás</button></td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>

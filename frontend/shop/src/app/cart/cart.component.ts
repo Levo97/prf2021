@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { Router } from '@angular/router';
 
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(private router: Router,private http: HttpClient) {
     this.sum = 0
   }
 
@@ -43,5 +45,12 @@ export class CartComponent implements OnInit {
       this.ngOnInit()
     }
   }
-
+  order(){
+    this.http.post(environment.Url + '/order', {responseType: 'text', withCredentials: true, products : this.products }).subscribe(msg =>{
+      alert("Sikeres rendelés!")
+      console.log(msg)
+      localStorage.removeItem("cart")
+      this.products = []
+    })
+  }
 }
