@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 import { HttpClient } from '@angular/common/http'
 @Component({
@@ -18,7 +19,7 @@ export class AdminComponent implements OnInit {
   sum : number
 
   ngOnInit(): void {
-    this.http.post<Product[]>("http://localhost:3000/products", {responseType: 'text', witCredentials: true}).subscribe(data =>
+    this.http.post<Product[]>(environment.Url+"/products", {responseType: 'text', witCredentials: true}).subscribe(data =>
       this.products =data
     )
 

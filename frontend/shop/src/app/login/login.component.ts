@@ -3,6 +3,7 @@ import { AuthenticationServiceService } from '../auth/authentication-service.ser
 import { Router } from '@angular/router';
 import { User } from '../user';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -38,7 +39,7 @@ regpassword: string;
      name: this.regname,
      password: this.regpassword
     }
-    this.http.post("http://localhost:3000/add_user", { user: tp },
+    this.http.post(environment.Url+"/add_user", { user: tp },
     {
       responseType: 'text',
       withCredentials: true}).subscribe(data =>{

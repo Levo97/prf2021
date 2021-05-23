@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient, private AppComponent: AppComponent) { }
 
   ngOnInit(): void {
-    this.http.post<Product[]>("http://localhost:3000/products", {responseType: 'text', witCredentials: true}).subscribe(data =>
+    this.http.post<Product[]>(environment.Url+"/products", {responseType: 'text', witCredentials: true}).subscribe(data =>
       this.products =data
 
     )
