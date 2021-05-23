@@ -1,8 +1,6 @@
 package PRF2021.spring.controllers;
 
-import PRF2021.spring.models.Product;
 import PRF2021.spring.models.Transaction;
-import PRF2021.spring.services.ProductService;
 import PRF2021.spring.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
