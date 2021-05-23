@@ -1,9 +1,13 @@
 {
   "name": "prf2021",
   "version": "1.0.0",
+
+  
   "description": "Programrendszerek fejlesztése gyakorlatra készült webáruház",
   "main": "index.js",
   "scripts": {
+    "heroku-postbuild": "cd frontend && npm i && cd ../frontend && npm i",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
