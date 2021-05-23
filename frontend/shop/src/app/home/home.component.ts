@@ -3,6 +3,8 @@ import { Product } from '../product'
 import { HttpClient } from '@angular/common/http'
 import { templateJitUrl } from '@angular/compiler';
 import { AppComponent } from '../app.component';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
