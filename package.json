@@ -1,8 +1,6 @@
 {
   "name": "prf2021",
   "version": "1.0.0",
-
-  
   "description": "Programrendszerek fejlesztése gyakorlatra készült webáruház",
   "main": "index.js",
   "scripts": {

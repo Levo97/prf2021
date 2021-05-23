@@ -10,9 +10,10 @@
       </li>
       <li><a class="nav-link" routerLink="/cart" routerLinkActive="activebutton">Kosár</a>
       </li>
-      <li><a class="nav-link" routerLink="/admin" routerLinkActive="activebutton">Aminisztráció</a>
+      <li id="adminmenu">
+        <a class='nav-link' routerLink='/admin' routerLinkActive='activebutton'>Aminisztráció</a>
       </li>
-      <li><a class="nav-link" routerLink="/login" routerLinkActive="activebutton">Bejelentkezés</a>
+      <li><a class="nav-link" routerLink="/login" routerLinkActive="activebutton">{{ logText }}</a>
       </li>
 
     </ul>

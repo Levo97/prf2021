@@ -103,6 +103,18 @@ app.get('/', function (req, res) {
     })
 })
 
+app.post("/add_user", (req, res) => {
+    if (req.body.user) {
+        const temp = new User({
+            name: req.body.user.name,
+            password: req.body.user.password
+
+        });
+
+        temp.save();
+    }
+});
+
 app.post('/products', (req, res) => {
     Product.find({
         "quantity": {
