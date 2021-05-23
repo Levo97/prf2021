@@ -23,6 +23,7 @@
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "heroku": "^7.54.0",
     "jshint": "^2.12.0",
     "mongodb": "^3.6.7",
     "mongoose": "^5.12.10",
@@ -32,5 +33,4 @@
     "prettier": "^2.3.0"
   },
   "devDependencies": {}
-  
 }
