@@ -114,7 +114,9 @@ app.post("/add_user", (req, res) => {
         temp.save();
     }
 });
+app.post('/order', (req, res) => {
 
+})
 app.post('/products', (req, res) => {
     Product.find({
         "quantity": {
@@ -122,9 +124,9 @@ app.post('/products', (req, res) => {
         }
     }, (err, result) => {
         if (err) {
-            console.log(err)
+            console.log(err);
         }
-        res.send(result)
+        res.send(result);
     })
 })
 

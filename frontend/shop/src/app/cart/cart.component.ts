@@ -46,11 +46,8 @@ export class CartComponent implements OnInit {
     }
   }
   order(){
-   /* this.http.post(environment.Url + '/order', {responseType: 'text', withCredentials: true, products : this.products }).subscribe(msg =>{
-      alert("Sikeres rendelés!")
-      console.log(msg)
-      localStorage.removeItem("cart")
-      this.products = []
-    })*/
+    localStorage.removeItem("cart")
+    this.ngOnInit();
+
   }
 }

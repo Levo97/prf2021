@@ -11,18 +11,25 @@ import { HttpClient } from '@angular/common/http'
 })
 export class AdminComponent implements OnInit {
 
+
+
+
   constructor(private router: Router, private http: HttpClient) {
     this.sum = 0
   }
 
   products: Product[] = []
   sum : number
+  selectedDevice: string="";
+
+ /* onChange(newValue ) {
+    console.log(newValue);
+    this.selectedDevice = newValue;}*/
 
   ngOnInit(): void {
     this.http.post<Product[]>(environment.Url+"/products", {responseType: 'text', witCredentials: true}).subscribe(data =>
-      this.products =data
+      this.products =data,
     )
-
   }
 
   remove(product: Product){
